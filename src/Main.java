@@ -58,7 +58,7 @@ public class Main {
                 Saldo Em 1 Ano: %.2f
                 """.formatted(name, investedCash, yearInvestedCash);
 
-        do {
+        while (inicialOption != 3) {
             System.out.println(textInicialOptions);
             inicialOption = scanner.nextInt();
 
@@ -118,9 +118,9 @@ public class Main {
                         case 2:
                             System.out.println("Digite o valor a ser recebido:");
                             transferValue = scanner.nextDouble();
-                            if (transferValue > checkingCash){
+                            if (transferValue > checkingCash) {
                                 System.out.println("Você não possui saldo para essa transferência!");
-                            }else{
+                            } else {
                                 investedCash = investedCash + transferValue;
                                 System.out.println("Dinheiro recebido, seu saldo Poupança atual é de: " + investedCash);
                             }
@@ -128,9 +128,9 @@ public class Main {
                         case 3:
                             System.out.println("Digite o valor a ser transferido para a Conta Corrente:");
                             transferValue = scanner.nextDouble();
-                            if (transferValue > investedCash){
+                            if (transferValue > investedCash) {
                                 System.out.println("Você não possui saldo para essa transferência!");
-                            }else{
+                            } else {
                                 investedCash = investedCash - transferValue;
                             }
                             checkingCash = checkingCash + transferValue;
@@ -155,6 +155,7 @@ public class Main {
             } else {
                 break;
             }
-        } while (inicialOption != 3);
+        inicialOption = 0;
+        }
     }
 }
